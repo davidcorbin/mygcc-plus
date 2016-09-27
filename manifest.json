@@ -10,13 +10,16 @@
     "128": "icons/mygccplus-icon-128.png"
   },
   "browser_action": {
-    "default_icon": "icons/mygccplus-icon-32.png"
+    "default_icon": "icons/mygccplus-icon-48.png"
   },
   "content_scripts": [
     {
       "matches": ["*://*.my.gcc.edu/*"],
-      "js": ["main.js"]
+      "js": ["js/mygcc-plus.js"]
     }
+  ],
+  "web_accessible_resources": [
+    "css/mygcc-plus.css"
   ],
   "permissions": [
     "*://my.gcc.edu/*"

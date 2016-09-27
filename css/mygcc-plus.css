@@ -1,0 +1,13 @@
+#headerTabs {
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+.pHead {
+    border-radius: 0 !important;
+}
+
+#sideBar div.sideSection, #sideBar div#quickLinks {
+    border: none !important;
+    border-radius: 0 !important;
+}

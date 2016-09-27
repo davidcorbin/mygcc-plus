@@ -10,6 +10,7 @@
     var local_storage_password_key = "mygccplus_pw";
 
 
+    // Login to mygcc
     var login = function() {
         // If username and password are in local storage
         if (localStorage.getItem(local_storage_username_key) != null &&
@@ -38,25 +39,47 @@
                 return true;
             });
         }
+
+        // If there is a logout button on the page
+        if (document.getElementById("logout")) {
+            // Capture click on logout button and remove credentials from local storage
+            document.getElementById("logout").addEventListener("click", function() {
+                try {
+                    localStorage.removeItem(local_storage_username_key);
+                    localStorage.removeItem(local_storage_password_key);
+                }
+                catch (e) {
+                    console.log(e);
+                }
+                return true;
+            });
+        }
+
     };
 
-    // Capture click on submit button to get username and password
-    document.getElementById("logout").addEventListener("click", function() {
-        try {
-            localStorage.removeItem(local_storage_username_key);
-            localStorage.removeItem(local_storage_password_key);
-        }
-        catch (e) {
-            console.log(e);
-        }
-        return true;
-    });
 
-    login();
+    // Append custom css to page
+    var customcss = function() {
+        var url = chrome.extension.getURL("css/mygcc-plus.css");
+        var link = document.createElement('link');
+        link.type = 'text/css';
+        link.rel = 'stylesheet';
+        link.href = url;
+        document.head.appendChild(link);
+    };
 
-    // Stop mygcc from scrolling halfway down the page when it loads. Why would you ever want that anyway????
+    
     window.onload = function() {
+        // Stop mygcc from scrolling halfway down the page when it loads. Why would you ever want that anyway????
         window.scrollTo(0, 0);
+
+        // Open the "My Courses" sidebar section
+        document.querySelector("#myCourses").classList.remove("closed");
+        document.querySelector("#myCourses").classList.add("open");
     };
+    
+    
+    login();
+    customcss();
 
 })();
