@@ -19,7 +19,8 @@
     }
   ],
   "web_accessible_resources": [
-    "css/mygcc-plus.css"
+    "css/mygcc-plus.css",
+    "icons/*"
   ],
   "permissions": [
     "*://my.gcc.edu/*"
