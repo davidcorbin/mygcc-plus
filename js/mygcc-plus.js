@@ -79,6 +79,7 @@
 
         // Change the favicon to custom icon
         document.querySelector("link[type='image/x-icon']").href = chrome.extension.getURL("icons/mygccplus-icon-128.png");
+        
     };
     
     

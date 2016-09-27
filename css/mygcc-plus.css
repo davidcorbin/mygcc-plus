@@ -1,3 +1,6 @@
+/*
+ * Remove cheezy rounded corners
+ */
 #headerTabs {
     border-bottom-right-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
@@ -10,4 +13,11 @@
 #sideBar div.sideSection, #sideBar div#quickLinks {
     border: none !important;
     border-radius: 0 !important;
+}
+
+/*
+ * Fix the issue where the "ad" below the menu bar is too wide and forces a horizontal scroll bar
+ */
+#TargetedMessage img {
+    max-width: 95%;
 }
