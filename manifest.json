@@ -16,7 +16,8 @@
     {
       "run_at" : "document_end",
       "matches": ["*://*.my.gcc.edu/*"],
-      "js": ["js/mygcc-plus.js"]
+      "js": ["js/mygcc-plus.js"],
+      "css": ["css/mygcc-plus.css", "css/grid.css"]
     }
   ],
   "web_accessible_resources": [

@@ -3,18 +3,22 @@
  * Copyright (c) 2016 David Corbin. All rights reserved.
  */
 
-(function() {
+/*jslint browser: true*/
+/*global console, chrome*/
+
+
+(function () {
+
+    "use strict";
 
     // Local storage keys for mygcc username and password
-    var local_storage_username_key = "mygccplus_un";
-    var local_storage_password_key = "mygccplus_pw";
+    var local_storage_username_key = "mygccplus_un", local_storage_password_key = "mygccplus_pw";
 
 
     // Login to mygcc
-    var login = function() {
+    function login() {
         // If username and password are in local storage
-        if (localStorage.getItem(local_storage_username_key) != null &&
-            localStorage.getItem(local_storage_password_key) != null) {
+        if (localStorage.getItem(local_storage_username_key) !== null && localStorage.getItem(local_storage_password_key) !== null) {
 
             // If username and password DOM inputs are in DOM
             if (document.getElementsByName("userName")[0] && document.getElementsByName("password")[0]) {
@@ -25,15 +29,13 @@
                 // Click the submit button
                 document.getElementById("btnLogin").click();
             }
-        }
-        else {
+        } else {
             // Capture click on submit button to get username and password
-            document.getElementsByName("btnLogin")[0].addEventListener("click", function() {
+            document.getElementsByName("btnLogin")[0].addEventListener("click", function () {
                 try {
                     localStorage.setItem(local_storage_username_key, document.getElementsByName("userName")[0].value);
                     localStorage.setItem(local_storage_password_key, document.getElementsByName("password")[0].value);
-                }
-                catch (e) {
+                } catch (e) {
                     console.log(e);
                 }
                 return true;
@@ -43,33 +45,20 @@
         // If there is a logout button on the page
         if (document.getElementById("logout")) {
             // Capture click on logout button and remove credentials from local storage
-            document.getElementById("logout").addEventListener("click", function() {
+            document.getElementById("logout").addEventListener("click", function () {
                 try {
                     localStorage.removeItem(local_storage_username_key);
                     localStorage.removeItem(local_storage_password_key);
-                }
-                catch (e) {
+                } catch (e) {
                     console.log(e);
                 }
                 return true;
             });
         }
+    }
 
-    };
 
-
-    // Append custom css to page
-    var customcss = function() {
-        var url = chrome.extension.getURL("css/mygcc-plus.css");
-        var link = document.createElement('link');
-        link.type = 'text/css';
-        link.rel = 'stylesheet';
-        link.href = url;
-        document.head.appendChild(link);
-    };
-
-    
-    window.onload = function() {
+    window.onload = function () {
         // Stop mygcc from scrolling halfway down the page when it loads. Why would you ever want that anyway????
         window.scrollTo(0, 0);
 
@@ -79,11 +68,22 @@
 
         // Change the favicon to custom icon
         document.querySelector("link[type='image/x-icon']").href = chrome.extension.getURL("icons/mygccplus-icon-128.png");
-        
-    };
-    
-    
-    login();
-    customcss();
 
-})();
+        // Add grid system
+        document.getElementById("mainLayout").classList.add("grid");
+    };
+
+
+    // Float menu bar when scrolled past point
+    document.addEventListener("scroll", function () {
+        if (window.scrollY >= 150) {
+            document.getElementById("headerTabs").classList.add("floatMenuBar");
+        } else {
+            document.getElementById("headerTabs").classList.remove("floatMenuBar");
+        }
+    }, false);
+
+
+    login();
+
+}());
