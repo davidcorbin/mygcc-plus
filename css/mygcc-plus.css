@@ -1,14 +1,7 @@
 @import 'https://fonts.googleapis.com/css?family=Lato';
 
-body * {
-    font-family: "Helvetica Neue Light", "Lato", sans-serif !important;
-    font-weight: 100;
-}
-
-/*
- * Remove cheezy rounded corners
- */
 #headerTabs {
+    /* Remove cheezy rounded corners */
     border-bottom-right-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
 }
