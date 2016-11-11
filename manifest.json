@@ -1,8 +1,8 @@
 {
-  "name": "mygcc-plus",
-  "version": "0.1",
+  "name": "myGCC Plus",
+  "version": "0.2",
   "manifest_version": 2,
-  "description": "Improvements to mygcc",
+  "description": "Improvements to myGCC",
   "homepage_url": "https://davidcorbin.github.io",
   "icons": {
     "16": "icons/mygccplus-icon-16.png",
@@ -27,5 +27,8 @@
   ],
   "permissions": [
     "*://my.gcc.edu/*"
-  ]
+  ],
+  "background" : {
+    "scripts" : ["js/mygcc-plus-background.js"]
+  }
 }

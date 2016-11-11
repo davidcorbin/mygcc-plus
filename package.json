@@ -1,0 +1,31 @@
+{
+  "name": "mygcc-plus",
+  "author": {
+    "name": "David Corbin",
+    "email": "daconex+mygccplus@gmail.com",
+    "url": "https://davidcorbin.github.io/"
+  },
+  "version": "0.2.0",
+  "description": "Improvements to myGCC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:background": "uglifyjs -c -o ./js/mygcc-plus-background.min.js ./js/mygcc-plus-background.js",
+    "build:main": "uglifyjs -c -o ./js/mygcc-plus.min.js ./js/mygcc-plus.js | cleancss -o ./css/mygcc-plus.min.css ./css/mygcc-plus.css",
+    "minify": "npm run build:main | npm run build:background"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidcorbin/mygcc-plus.git"
+  },
+  "author": "David Corbin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidcorbin/mygcc-plus/issues"
+  },
+  "homepage": "https://github.com/davidcorbin/mygcc-plus",
+  "devDependencies": {
+    "uglify-js": "^1.3.5",
+    "clean-css": "^3.4.20"
+  }
+}
