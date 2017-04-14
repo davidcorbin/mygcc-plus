@@ -61,18 +61,16 @@
     window.onload = function () {
         // Stop mygcc from scrolling halfway down the page when it loads. Why would you ever want that anyway????
         window.scrollTo(0, 0);
-        
+
         // Add grid system
         document.getElementById("mainLayout").classList.add("grid");
-        
+
         // Open the "My Courses" sidebar section
         document.querySelector("#myCourses").classList.remove("closed");
         document.querySelector("#myCourses").classList.add("open");
 
         // Change the favicon to custom icon
         document.querySelector("link[type='image/x-icon']").href = chrome.extension.getURL("icons/mygccplus-icon-128.png");
-
-
     };
 
 
